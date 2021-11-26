@@ -34,13 +34,11 @@ create table dijete(
 );
 
 alter table odgajateljica add foreign key (strucnasprema) references strucnasprema(sifra);
-
 alter table odgojnaskupina add foreign key (odgajateljica) references odgajateljica(sifra);
-
 alter table clan add foreign key (odgojnaskupina) references odgojnaskupina(sifra);
 alter table clan add foreign key (dijete) references dijete(sifra);
 
-
+-- INSERT
 insert into strucnasprema(sifra, naziv) values
 (null,'Srednja stručna sprema'),
 (null,'Viša stručna spreman');
@@ -60,3 +58,19 @@ insert into dijete(sifra,ime,prezime,oib) values
 insert into clan(odgojnaskupina,dijete) values
 (1,1),
 (2,2);
+
+-- UPDATE 
+update strucnasprema set naziv='SSS - Srednja stručna sprema' where sifra=1;
+update strucnasprema set naziv='VSS - Viša stručna sprema' where sifra=2;
+
+-- JOIN
+-- pronadi dijete 'Matija' i onda pokazi ime i prezime tete odgajateljice te njenu strucnu spremu
+select * from dijete where ime='Matija';
+
+select b.ime, b.prezime, a.naziv
+from strucnasprema a
+inner join odgajateljica b on a.sifra=b.strucnasprema
+inner join odgojnaskupina c on c.odgajateljica=b.sifra
+inner join clan d on d.odgojnaskupina=c.sifra
+inner join dijete e on e.sifra=d.dijete
+where e.ime='Matija';

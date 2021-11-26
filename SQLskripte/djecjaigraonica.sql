@@ -32,9 +32,10 @@ alter table skupina add foreign key (teta) references teta(sifra);
 alter table skupina_dijete add foreign key (skupina) references skupina(sifra);
 alter table skupina_dijete add foreign key (dijete) references dijete(sifra);
 
+-- INSERT
 insert into teta(sifra, ime, prezime, oib, iban) values
 (null,'Dunja','Grubić',null,null),
-(null,'Mirna','Horvat',null,null);
+(null,'Mirna','Cecelja',null,null);
 
 insert into dijete(sifra,ime,prezime,oib) values
 (null,'Roman','Grubić',null),
@@ -47,3 +48,18 @@ insert into skupina(sifra,naziv,teta) values
 insert into skupina_dijete(skupina,dijete) values
 (1,1),
 (2,2);
+
+-- UPDATE
+
+update teta set prezime='Bogdanović' where sifra=1;
+update teta set prezime='Horvat' where sifra=2;
+
+-- JOIN
+-- izlistaj ime, prezime i ime skupine za djecu kojoj je teta Dunja.
+
+select a.ime, a.prezime, c.naziv as naziv_skupine
+from dijete a 
+inner join skupina_dijete b on a.sifra=b.dijete
+inner join skupina c on b.skupina=c.sifra
+inner join teta d on c.teta=d.sifra
+where d.ime='Dunja';
