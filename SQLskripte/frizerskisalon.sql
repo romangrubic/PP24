@@ -59,3 +59,14 @@ insert into posjet(djelatnica,usluga,korisnik,datum) values
 (2,2,3,'2021-10-30'),
 (2,3,1,'2021-10-24');
 
+-- JOIN
+-- ispisi imena i prezimena korisnika, djelatnika, naziv usluga i cijenu usluga za datum 30.10.2021
+
+select b.ime as ime_korisnika, b.prezime as prezime_korisnika, c.ime as ime_djelatnice,
+		c.prezime as prezime_djelatnice, d.naziv as naziv_usluge, d.cijena, a.datum
+from posjet a 
+inner join korisnik b on a.korisnik=b.sifra
+inner join djelatnica c on a.djelatnica=c.sifra
+inner join usluga d on a.usluga=d.sifra
+where a.datum='2021-10-30';
+
