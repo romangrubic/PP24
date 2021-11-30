@@ -136,13 +136,19 @@ from mladic;
 
 select a.hlace
 from muskarac a
-inner join zena b on b.sifra=a.zena
+
+select a.dukserica, f.asocijalno, e.hlace
+from svekar a
+inner join sestra_svekar b on a.sifra=b.svekar
 inner join sestra c on b.sestra=c.sifra
-where b.hlace like 'a%' and c.haljina like '%ba%'
+inner join zena d on c.sifra=d.sestra
+inner join muskarac e on d.sifra=e.zena
+inner join mladic f on e.sifra=f.muskarac
+where d.hlace like 'a%' and c.haljina like '%ba%'
 group by a.hlace desc;
 
 -- 6.zadatak
 select haljina, maraka
 from sestra 
-where sifra not in (select sestra from sestra_svekar);
+where sifra not in (select distinct sestra from sestra_svekar);
 
