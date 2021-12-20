@@ -1,57 +1,80 @@
-<?php
+<!DOCTYPE html>
+<html lang="en">
 
-spirala($_GET['row'], $_GET['column']);
+<head>
+    <!-- Head start -->
+    <?php require_once 'includes/head.php'; ?>
+    <!-- Head finish -->
+</head>
 
-function spirala($row, $column)
-{
-    // Number of cells in the whole table
-    $size = ($row * $column);
+<body>
 
-    // Array start from 0 so we have to decrement by 1 in order to preserve it
-    $column--;
-    $row--;
+    <form method="GET">
+        <input type="number" name="row">
+        <input type="number" name="column">
+        <button action="submit">Submit</button>
+    </form>
 
-    // We are defining our 2-d matrix
-    $top = 0;
-    $right = $column;
-    $bottom = $row;
-    $left = 0;
 
-    // Counter to show the user and compare with size 
-    $counter = 1;
+    <?php
 
-    // We push the counter in it's position inside multidimensional array
-    $list = [];
+    spirala($_GET['row'], $_GET['column']);
 
-    while ($counter <= $size) {
-        for ($i = $right; $i >= $left; $i--) {
-            $list[$bottom][$i] = $counter++;
-        }
-        $bottom--;
+    function spirala($row, $column)
+    {
+        // Number of cells in the whole table
+        $size = ($row * $column);
 
-        for ($i = $bottom; $i >= $top; $i--) {
-            $list[$i][$left] = $counter++;
-        }
-        $left++;
+        // Array start from 0 so we have to decrement by 1 in order to preserve it
+        $column--;
+        $row--;
 
-        for ($i = $left; $i <= $right; $i++) {
-            $list[$top][$i] = $counter++;
+        // We are defining our 2-d matrix
+        $top = 0;
+        $right = $column;
+        $bottom = $row;
+        $left = 0;
+
+        // Counter to show the user and compare with size 
+        $counter = 1;
+
+        // We push the counter in it's position inside multidimensional array
+        $list = [];
+
+        while ($counter <= $size) {
+            for ($i = $right; $i >= $left; $i--) {
+                $list[$bottom][$i] = $counter++;
+            }
+            $bottom--;
+
+            for ($i = $bottom; $i >= $top; $i--) {
+                $list[$i][$left] = $counter++;
+            }
+            $left++;
+
+            for ($i = $left; $i <= $right; $i++) {
+                $list[$top][$i] = $counter++;
+            };
+            $top++;
+
+            for ($i = $top; $i <= $bottom; $i++) {
+                $list[$i][$right] = $counter++;
+            };
+            $right--;
         };
-        $top++;
 
-        for ($i = $top; $i <= $bottom; $i++) {
-            $list[$i][$right] = $counter++;
+        echo '<table>';
+        for ($i = 0; $i <= $row; $i++) {
+            echo '<tr>';
+            for ($j = 0; $j <= $column; $j++) {
+                echo '<td>' . $list[$i][$j] . '</td>';
+            };
+            echo '</tr>';
         };
-        $right--;
-    };
+        echo '</table>';
+    }
+    ?>
 
-    echo '<table>';
-    for ($i = 0; $i <= $row; $i++) {
-        echo '<tr>';
-        for ($j = 0; $j <= $column; $j++) {
-            echo '<td>' . $list[$i][$j] . '</td>';
-        };
-        echo '</tr>';
-    };
-    echo '</table>';
-}
+</body>
+
+</html>
