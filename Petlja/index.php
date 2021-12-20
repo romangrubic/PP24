@@ -1,5 +1,7 @@
 <?php
 
+spirala($_GET['row'], $_GET['column']);
+
 function spirala($row, $column)
 {
     // Number of cells in the whole table
@@ -42,4 +44,14 @@ function spirala($row, $column)
         };
         $right--;
     };
+
+    echo '<table>';
+    for ($i = 0; $i <= $row; $i++) {
+        echo '<tr>';
+        for ($j = 0; $j <= $column; $j++) {
+            echo '<td>' . $list[$i][$j] . '</td>';
+        };
+        echo '</tr>';
+    };
+    echo '</table>';
 }
