@@ -8,12 +8,16 @@
 </head>
 
 <body>
+    <div class="container form">
+        <div class="row">
+            <form method="GET" class="mx-auto">
+                <input type="number" name="row">
+                <input type="number" name="column">
+                <button action="submit">Submit</button>
+            </form>
+        </div>
+    </div>
 
-    <form method="GET">
-        <input type="number" name="row">
-        <input type="number" name="column">
-        <button action="submit">Submit</button>
-    </form>
 
 
     <?php
@@ -63,15 +67,19 @@
             $right--;
         };
 
-        echo '<table>';
-        for ($i = 0; $i <= $row; $i++) {
-            echo '<tr>';
-            for ($j = 0; $j <= $column; $j++) {
-                echo '<td>' . $list[$i][$j] . '</td>';
+        if (isset($_GET['row']) && isset($_GET['column'])) {
+            echo '<div class="container mx-auto">';
+            echo '<table>';
+            for ($i = 0; $i <= $row; $i++) {
+                echo '<tr>';
+                for ($j = 0; $j <= $column; $j++) {
+                    echo '<td>' . $list[$i][$j] . '</td>';
+                };
+                echo '</tr>';
             };
-            echo '</tr>';
-        };
-        echo '</table>';
+            echo '</table>';
+            echo '</div>';
+        }
     }
     ?>
 

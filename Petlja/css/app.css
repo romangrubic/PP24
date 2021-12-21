@@ -1,5 +1,6 @@
 table{
     border: 1px solid black;
+    margin: 100px;
 }
 
 td{
@@ -7,4 +8,8 @@ td{
     text-align: center;
     height: 25px;
     width: 25px;
+}
+
+.form{
+    margin-top: 50px;
 }
