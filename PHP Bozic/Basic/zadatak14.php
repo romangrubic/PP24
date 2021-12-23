@@ -8,10 +8,12 @@ if(isset($_GET['webpage'])){
     echo 'Add a parameter webpage and url in it. Example "http://www.facebook.com/"';
 }
 
+
+// Takes the source code of the website in a form of array
 $source_code=file($webpage);
 
-foreach ($source_code as $line_number => $text) {
-    echo 'Line No.'. $line_number. ' : '. nl2br(htmlspecialchars($text) . "\n");
+foreach ($source_code as $key => $value) {
+    echo 'Line No.'. $key. ' : '. nl2br(htmlspecialchars($value) . "\n");
 }
 
 
