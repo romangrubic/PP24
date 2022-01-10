@@ -50,21 +50,26 @@
                 $list[$bottom][$i] = $counter++;
             }
             $bottom--;
+            if($counter>$size) break;
 
             for ($i = $bottom; $i >= $top; $i--) {
                 $list[$i][$left] = $counter++;
             }
             $left++;
+            if($counter>$size) break;
 
             for ($i = $left; $i <= $right; $i++) {
                 $list[$top][$i] = $counter++;
             };
             $top++;
+            if($counter>$size) break;
 
             for ($i = $top; $i <= $bottom; $i++) {
                 $list[$i][$right] = $counter++;
             };
             $right--;
+            if($counter>$size) break;
+
         };
 
         if (isset($_GET['row']) && isset($_GET['column'])) {
