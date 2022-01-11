@@ -13,8 +13,11 @@ function program($n)
         } else {
             $floor--;
         }
+        if($floor=== -1){
+            echo ($i+1).', ';
+        }
     }
-
+    echo '<br/>';
     echo $floor;
 }
 
@@ -22,4 +25,3 @@ program($a);
 
 
 ?>
-
