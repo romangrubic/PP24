@@ -8,7 +8,7 @@ if(!isset($_POST['name'])){
 if($_POST['name']!='Roman' ){
     session_start();
     if(empty($_POST['name'])){
-        $_POST['name']='nepoznato';
+        $_SESSION['name']='nepoznato';
     }else{
         $_SESSION['name']=$_POST['name'];
     }
