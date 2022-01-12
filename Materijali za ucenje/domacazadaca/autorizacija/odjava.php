@@ -1,6 +1,6 @@
 <?php
 
 session_start();
-unset($_SESSION['autoriziran']);
+unset($_SESSION['name']);
 session_destroy();
 header('location: index.php');
