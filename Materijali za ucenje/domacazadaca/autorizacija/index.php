@@ -8,9 +8,20 @@
 </head>
 
 <body>
-    <div class="callout">
-        <h1>Hello</h1>
+    <div class="callout" id="index">
+        <form action="autoriziraj.php" method="post">
+            <fieldset>
+                <legend>Ako znas moje ime, prijavi se!</legend>
+                <label for="name">Moje ime</label>
+                <input type="text" name="name" id="name">
+                <input type="submit" class="submit" value="Enter">
+            </fieldset>
+        </form>
     </div>
+
+    <!-- Javascript i ostale skripte start -->
+    <?include_once 'include/skripte.php'; ?>
+    <!-- Skripte kraj -->
 </body>
 
 </html>
