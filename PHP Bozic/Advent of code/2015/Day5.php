@@ -8,12 +8,12 @@ $nice = 0;
 foreach ($file as $string) {
 
     // IF string has one those, it will jump to next iteration (continue)
-    if (strpos($string,'ab') === false || strpos($string,'cd') === false  || strpos($string,'pq') === false  || strpos($string,'xy') === false ) {
+    if (strpos($string,'ab') !== false || strpos($string,'cd') !== false  || strpos($string,'pq') !== false  || strpos($string,'xy') !== false ) {
         continue;
     }
 
     $doublechar = false;
-    
+
     for ($i = 0; $i < strlen($string); $i++) {
         $firstchar = substr($string, $i, 1);
         $secondchar = substr($string, $i + 1, 1);
@@ -25,7 +25,7 @@ foreach ($file as $string) {
 
     $vowels = substr_count($string, 'a') + substr_count($string, 'e') + substr_count($string, 'i') + substr_count($string, 'o') + substr_count($string, 'u');
 
-    if ($valid && $vowels >= 3) {
+    if ($doublechar && $vowels >= 3) {
         $nice++;
     }
 }
