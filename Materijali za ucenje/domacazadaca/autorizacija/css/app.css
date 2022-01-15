@@ -1,12 +1,65 @@
-#index{
-    margin: 10% 20%;
+/* Varijabla za boju */
+:root{
+    --very-peri: rgb(102, 103, 171);
 }
 
-.slika{
-    margin:10% auto;
+/* Index.php */
+.pocetna{
+    background-color: var(--very-peri);
+}
+
+#index{
+    margin: 20% auto 0px;
+    border-radius: 5px;
+}
+.callout{
+    padding: auto;
+    width:500px;
+}
+.forma{
     text-align: center;
+}
+legend{
+    font-weight: 500;
+    font-size: 20px;
+    padding: 30px 0px;
+}
+label{
+    font-size: 16px;
+}
+
+#name{
+    text-align: center;
+    width: 200px;
+    margin: 15px auto;
+}
+
+/* Privatno.php */
+.privatno{
+    background-color: var(--very-peri);
+}
+.obrub{
+    border: 1px solid rgb(231, 231, 231);
+    border-radius: 5px;
+    margin: 100px auto;
+    width: 600px;
+    background-color: white;
+}
+.slika{
+    margin: 25px auto;
+    text-align: center;
+    width: 500px;
 }
 
 #odjava{
     text-align: center;
+    width: 500px;
+    margin: 25px auto 10px;
+}
+
+/* Boja za button */
+.button{
+    margin-top: 20px;
+    background-color: var(--very-peri);
+    border-radius: 5px;
 }

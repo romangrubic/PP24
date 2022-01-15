@@ -8,19 +8,19 @@
     <!-- Zaglavlje kraj -->
 </head>
 
-<body>
+<body class="pocetna">
     <div class="callout" id="index">
         <form action="autoriziraj.php" method="post">
-            <fieldset>
+            <fieldset class="forma">
                 <legend>Ako znas moje ime, prijavi se!</legend>
-                <label for="name">Moje ime</label>
+                <label for="name">Moje ime je...</label>
                 <input type="text" name="name" id="name">
                 <h5>
                     <?php if(isset($_SESSION['name'])) {
                         echo 'Moje ime nije ' . $_SESSION['name'] . '. Pokušaj ponovno.';
                     } ?>
                 </h5>
-                <input type="submit" class="submit" value="Enter">
+                <input class="button" type="submit" class="submit" value="Prijava">
             </fieldset>
         </form>
     </div>

@@ -15,12 +15,14 @@ if (!isset($_SESSION['name'])) {
     <?php include_once 'include/zaglavlje.php'; ?>
 </head>
 
-<body>
-    <div class="slika">
-        <img src="image/Bojack.jpg" alt="Bojack Horseman image">
-    </div>
-    <div class="callout" id="odjava">
-        <a href="odjava.php">Odjavi se.</a>
+<body class="privatno">
+    <div class="obrub">
+        <div class="slika">
+            <img src="image/Bojack.jpg" alt="Bojack Horseman image">
+        </div>
+        <div id="odjava">
+            <a class="button" href="odjava.php">Odjavi se.</a>
+        </div>
     </div>
 
 </body>
