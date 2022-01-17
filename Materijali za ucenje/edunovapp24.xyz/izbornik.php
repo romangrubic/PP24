@@ -35,11 +35,20 @@
           </ul>
         </li>
         <li>
+          <a href="#">Programiranje</a>
+          <ul class="menu vertical">
+            <li><a target="_blank" href="definiranjefunkcija.php">Definiranje funkcija</a></li>
+            <li><a target="_blank" href="koristenjefunkcija.php">Korištenje funkcija</a></li>
+          </ul>
+        </li>
+        <li>
           <a href="#">Vježbanje</a>
           <ul class="menu vertical">
             <li><a target="_blank" href="z1.php">Zadatak 1</a></li>
             <li><a target="_blank" href="z2.php">Zadatak 2</a></li>
             <li><a target="_blank" href="z3.php">Zadatak 3</a></li>
+            <li><a target="_blank" href="z4.php">Zadatak 4</a></li>
+            <li><a target="_blank" href="z5.php">Zadatak 5</a></li>
           </ul>
         </li>
       </ul>
