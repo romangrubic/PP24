@@ -16,3 +16,25 @@
 // 6
 // vraća 1
 
+function brojPojavljivanja1($niz, $broj)
+{
+    $brojPojavljivanja = 0;
+    foreach($niz as $v) {
+        if ($v === $broj) {
+            $brojPojavljivanja++;
+        }
+    }
+    return $brojPojavljivanja;
+}
+
+echo brojPojavljivanja1([2, 4, 2, 6, 7, 3], 2);
+
+echo '<hr/>';
+
+function brojPojavljivanja2($niz, $broj)
+{
+
+    return count(array_keys($niz, $broj));
+}
+
+echo brojPojavljivanja2([2, 4, 2, 5, 6, 7, 3], 2);
