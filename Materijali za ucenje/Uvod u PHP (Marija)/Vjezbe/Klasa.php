@@ -18,10 +18,16 @@ class Automobil
     public $godProizvodnje;
     public $trenutnaBrzina;
 
-    function ubrzaj()
+    // Metode mogu primati parametre
+    function ubrzaj($koliko)
     {
-        $this->trenutnaBrzina +=5;
+        $this->trenutnaBrzina +=$koliko;
         echo 'Brzina auta je : '.$this->trenutnaBrzina.'<br/>';
+    }
+    function imaGodina()
+    {
+        $dob=date('Y') - $this->godProizvodnje;
+        return $dob;
     }
 }
 
@@ -33,8 +39,12 @@ class Automobil
 // Stvaranje objekta
 $auto1=new Automobil();
 $auto1->trenutnaBrzina=40;
-$auto1->ubrzaj();
+$auto1->ubrzaj(25);
+$auto1->godProizvodnje=2016;
+
+echo 'Auto je star '.$auto1->imaGodina().' godina. <br/>';
 
 var_dump($auto1);
 // object(Automobil)#1 (3) { ["boja"]=> NULL ["godProizvodnje"]=> NULL ["trenutnaBrzina"]=> int(45) }
 // Prvi objekt tog tipa (Prvi automobil) sa tri podatka. Lista s podacima, tipovima i vrijednostima
+
