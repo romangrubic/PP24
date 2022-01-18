@@ -11,13 +11,32 @@
 // Iz jedne klase moze nastati neogranicen broj objekata
 
 
+// Cahurenje (skrivanje podataka ili enkapsulacija)
+// Ostvaruje se pomocu modifikatora pristupa private
+// Samo kod unutar klase moze pristupiti podatkovnom clanu deklariranom sa private!
+
 // Stvaranje klase
 class Automobil
 {
     public $boja;
     public $godProizvodnje;
-    public $trenutnaBrzina;
+    private $trenutnaBrzina;
 
+    // __get() is utilized for reading data from inaccessible (protected or private) or non-existing properties.
+    // Izvor: https://www.php.net/manual/en/language.oop5.overloading.php#object.get
+    function __get($name)
+    {
+        return $this->$name;
+    }
+    // __set() is run when writing data to inaccessible (protected or private) or non-existing properties.
+    // Izvor: https://www.php.net/manual/en/language.oop5.overloading.php#object.get
+    function __set($name, $value)
+    {
+        return $this->$name=$value;
+    }
+    // Sada mozemo citati i pisati u trenutnuBrzinu jer smo ubacili magic functions get i set
+    // Inace dobijamo fatal error.
+    
     // Metode mogu primati parametre
     function ubrzaj($koliko)
     {
