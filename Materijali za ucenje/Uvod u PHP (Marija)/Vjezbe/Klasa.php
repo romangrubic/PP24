@@ -28,3 +28,13 @@ class Automobil
 // $boja, $godinaProizvodnje i $trenutnaBrzina su podatkovni,
 //  a ubrzaj() funkcijski clanovi klase
 // pomocu $this pristupamo podatkovnom clanu unutar klase
+
+
+// Stvaranje objekta
+$auto1=new Automobil();
+$auto1->trenutnaBrzina=40;
+$auto1->ubrzaj();
+
+var_dump($auto1);
+// object(Automobil)#1 (3) { ["boja"]=> NULL ["godProizvodnje"]=> NULL ["trenutnaBrzina"]=> int(45) }
+// Prvi objekt tog tipa (Prvi automobil) sa tri podatka. Lista s podacima, tipovima i vrijednostima
