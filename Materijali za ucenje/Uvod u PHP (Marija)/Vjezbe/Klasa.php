@@ -15,8 +15,28 @@
 // Ostvaruje se pomocu modifikatora pristupa private
 // Samo kod unutar klase moze pristupiti podatkovnom clanu deklariranom sa private!
 
+
+// Nasljeđivanje
+class Vozilo
+{
+    public $boja;
+    
+    public function f1()
+    {
+        echo 'Funckija public roditeljske klase <br/>';    
+    }
+    protected function f2()
+    {
+        echo 'Funkcija protected roditeljske klase <br/>';
+    }
+    private function f3()
+    {
+        echo 'Funkcija private roditeljske klase <br/>';
+    }
+}
+
 // Stvaranje klase
-class Automobil
+class Automobil extends Vozilo
 {
     public $boja;
     public $godProizvodnje;
@@ -27,6 +47,11 @@ class Automobil
     function __construct($brzina)
     {
      $this->trenutnaBrzina=$brzina;   
+
+     $this->f1();
+     $this->f2();
+    //  $this->f3(); // Fatal error: Call to private method vozilo::f3()
+
     }
 
     // estructor method will be called as soon as there are no other references to a particular object,
@@ -63,6 +88,11 @@ class Automobil
         $dob=date('Y') - $this->godProizvodnje;
         return $dob;
     }
+
+    function f4()
+    {
+        echo 'Funkcija klase djeteta <br/>';
+    }
 }
 
 // $boja, $godinaProizvodnje i $trenutnaBrzina su podatkovni,
@@ -89,3 +119,13 @@ $auto3=new Automobil(5);
 
 echo 'Auto2 vozi : '.$auto2->trenutnaBrzina.' km/h.';
 echo 'Auto3 vozi : '.$auto3->trenutnaBrzina.' km/h.';
+echo '<br/>';
+
+// Nasljeđivanje: dohvacanje metoda iz roditelja i djeteta
+$vozilo1=new Vozilo();
+$vozilo1->f1(); // Roditelj + roditeljska metoda OK
+// $vozilo1->f2(); // Roditelj ne moze pristupiti metodama iz dijeteta !OK
+$auto1->f1(); // Dijete + roditeljska metoda OK
+// $auto1->f2(); // Fatal error: Call to protected method Vozilo::f2()
+// $auto1->f3(); // Fatal error: Call to private method vozilo::f3()
+$auto1->f4(); // Dijete + djecja metoda OK
