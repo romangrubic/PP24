@@ -20,6 +20,7 @@
 class Vozilo
 {
     public $boja;
+    public $vrijednost='A';
     
     public function f1()
     {
@@ -33,6 +34,14 @@ class Vozilo
     {
         echo 'Funkcija private roditeljske klase <br/>';
     }
+    public function f5()
+    {
+        echo 'Vrijednost u klasi vozilo je '.$this->vrijednost.' <br/>';
+    }
+    final public function f6()
+    {
+        echo 'F6 Vrijednost je '.$this->vrijednost.' <br/>';
+    }
 }
 
 // Stvaranje klase
@@ -41,6 +50,8 @@ class Automobil extends Vozilo
     public $boja;
     public $godProizvodnje;
     private $trenutnaBrzina;
+    public $vrijednost='B';
+
 
     // Classes which have a constructor method call this method on each newly-created 
     // object, so it is suitable for any initialization that the object may need before it is used.
@@ -93,6 +104,16 @@ class Automobil extends Vozilo
     {
         echo 'Funkcija klase djeteta <br/>';
     }
+    public function f5()
+    {
+        echo 'Vrijednost u klasi vozilo je '.$this->vrijednost.' <br/>';
+    }
+
+    // Fatal error: Cannot overide final method vozilo.
+    // public function f6()
+    // {
+    //     echo 'F6 Vrijednost u klasi vozilo je '.$this->vrijednost.' <br/>';
+    // }
 }
 
 // $boja, $godinaProizvodnje i $trenutnaBrzina su podatkovni,
@@ -129,3 +150,12 @@ $auto1->f1(); // Dijete + roditeljska metoda OK
 // $auto1->f2(); // Fatal error: Call to protected method Vozilo::f2()
 // $auto1->f3(); // Fatal error: Call to private method vozilo::f3()
 $auto1->f4(); // Dijete + djecja metoda OK
+
+
+// Nadjačavanje
+// Ako se funkcija zove isto u roditelju i djetetu, onda ce roditelj zvati roditeljsku, a dijete dječju.
+$vozilo1->f5(); // Vrijednost u klasi vozilo je A
+$auto1->f5(); // Vrijednost u klasi vozilo je B
+
+$vozilo1->f6(); // Vrijednost u klasi vozilo je A
+$auto1->f6(); // Vrijednost u klasi vozilo je B
