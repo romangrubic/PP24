@@ -26,24 +26,31 @@ if (isset($_POST['text']) && !empty($_POST['text'])) {
     <!-- Zavrsetak zaglavlje.php -->
 </head>
 
-<body>
-    <a href="odjava.php">Odjavi se.</a>
-    <section>
-        <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post">
-            <legend>Dodaj novu objavu.</legend>
-            <label for="text">Tekst objave</label>
-            <textarea name="text" id="text" cols="30" rows="10"></textarea>
-            <input type="submit" value="Objavi!">
-        </form>
-    </section>
+<body class="board">
+    <div class="section">
+        <div class="container">
+            <a class="button alert odjava" href="odjava.php">Odjavi se.</a>
+        </div>
+        <section class="addPost">
+            <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post">
+                <!-- <legend>Dodaj novu objavu.</legend> -->
+                <label for="text">Dodaj novu objavu</label>
+                <textarea name="text" id="text" cols="30" rows="3"></textarea>
+                <input class="button " type="submit" value="Objavi!">
+            </form>
+        </section>
+        <hr>
+        <section class="postSection">
+            <?php
+            $data = $_SESSION['data'];
 
-    <?php
-    $data = $_SESSION['data'];
+            foreach ($data as $post) {
+                Post::writePost($post);
+            }
+            ?>
+        </section>
+    </div>
 
-    foreach ($data as $post) {
-        Post::writePost($post);
-    }
-    ?>
 
     <!-- Start skripte.php -->
     <?

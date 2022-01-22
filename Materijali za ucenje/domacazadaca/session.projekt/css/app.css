@@ -1,0 +1,27 @@
+
+.board{
+    background-color: rgb(102, 103, 171);
+}
+.section{
+    width: 700px;
+    margin: 15px auto 10px;
+    border: 1px solid black;
+    border-radius: 10px;
+    background-color: white;
+}
+.container{
+    width: 100%;
+    margin-top: 15px;
+    text-align: center;
+}
+.odjava{
+    width: 200px;
+    text-align: center;
+    margin: 0px auto;
+}
+.addPost{
+    margin: 25px 25px 15px;
+}
+.postSection{
+    margin: 15px 25px;
+}
