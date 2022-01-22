@@ -27,6 +27,7 @@ if (isset($_POST['text']) && !empty($_POST['text'])) {
 </head>
 
 <body>
+    <a href="odjava.php">Odjavi se.</a>
     <section>
         <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post">
             <legend>Dodaj novu objavu.</legend>
