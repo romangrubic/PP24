@@ -1,14 +1,41 @@
-
-.board{
+/* Index.php */
+body{
     background-color: rgb(102, 103, 171);
 }
 .section{
-    width: 700px;
-    margin: 15px auto 10px;
+    width: 600px;
+    margin: 10% auto;
     border: 1px solid black;
     border-radius: 10px;
     background-color: white;
+    text-align: center;
+    padding: 25px 0px;
 }
+.poruka{
+    font-weight: 500;
+    font-size: 20px;
+}
+.crvena{
+    color: rgb(255, 0, 0);
+    font-weight: 600;
+    font-size: 20px;
+}
+.loginDetalji{
+    margin: 30px 30px 0px;
+    padding-top: 10px;
+}
+.detalji{
+    width: 250px;
+    margin: auto;
+    margin-bottom: 25px;
+}
+.warning{
+    border: 1px solid rgba(0, 0, 0, 0.5);
+    border-radius: 5px;
+    margin: 15px 0px 0px;
+}
+
+/* Naslovna */
 .container{
     width: 100%;
     margin-top: 15px;
