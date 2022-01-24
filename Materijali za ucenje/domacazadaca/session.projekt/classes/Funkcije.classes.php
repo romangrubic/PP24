@@ -6,18 +6,22 @@ class Login
     public static function setLogin($username)
     {
         $_SESSION['user']['username'] = $username;
+        $_SESSION['user']['image']= 'images/noprofileimage.jpg';
         $_SESSION['data'] = [
             [
                 'username' => 'IvanHorvat',
-                'text' => 'Baš me bole leđa. Jel ima tko brufen?'
+                'text' => 'Baš me bole leđa. Jel ima tko brufen?',
+                'image'=>'images/ivan.jpg'
             ],
             [
                 'username' => 'Miki',
-                'text' => 'Dobar dan, jel me netko tražio?'
+                'text' => 'Dobar dan, jel me netko tražio?',
+                'image'=>'images/miki.jpeg'
             ],
             [
                 'username' => 'Tekashi69',
-                'text' => 'Igra li itko Tekken?'
+                'text' => 'Igra li itko Tekken?',
+                'image'=>'images/miki.jpeg'
             ]
         ];
     }
@@ -25,15 +29,17 @@ class Login
 
 class Post
 {
-    // Ispisuje sve objave u SESSION DATA
+    // Ispisuje sve objave iz SESSION DATA
     public static function writePost($post)
     {
         echo '
-            <div>
-                <p>' . $post['text'] . '</p>
-                <h4>' . $post['username'] . '</h4>
+            <div class="objave grid-x">
+                <p class="large-12">' . $post['text'] . '</p>
+                <div class="grid-x center">
+                    <img src="'.$post['image'].'" class="user-image" alt="No profile image :/">
+                    <h4>' . $post['username'] . '</h4>
+                </div>
             </div>
-            <hr />
         ';
     }
 };
