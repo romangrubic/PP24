@@ -36,19 +36,53 @@ body{
 }
 
 /* Naslovna */
-.container{
-    width: 100%;
-    margin-top: 15px;
+.naslovna{
+    width: 800px;
+    margin: 25px auto;
+    border: 1px solid black;
+    border-radius: 10px;
+    background-color: white;
     text-align: center;
+    padding: 25px 0px;
+}
+.userblok{
+    margin: 0px 125px;
+}
+.profile-image{
+    height: 60px;
+    width: 60px !important;
+}
+.ime{
+    padding: 10px 0px 0px;
+    margin: none;
 }
 .odjava{
-    width: 200px;
     text-align: center;
-    margin: 0px auto;
+    margin: auto;
 }
 .addPost{
-    margin: 25px 25px 15px;
+    margin: 35px 25px 25px;
+    text-align: center;
+}
+#text{
+    width: 500px;
+    margin: 0px auto 10px;
 }
 .postSection{
     margin: 15px 25px;
+}
+.objave{
+    border: 1px solid rgba(100, 100, 100, 0.205);
+    border-radius: 10px;
+    padding: 10px 10px;
+    width: 500px;
+    margin: 25px auto;
+}
+.user-image{
+    width: 35px !important;
+    height: 35px;
+    margin-right: 10px;
+}
+.center{
+    margin: auto;
 }
