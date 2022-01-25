@@ -32,11 +32,12 @@ class Login
 class Post
 {
     // Uzima POST objekt i stvara novi post
-    public static function insertPost(){
+    public static function insertPost($color){
         $podaci = [
         'username' => $_SESSION['user']['username'],
         'id'=> $_SESSION['dataId'],
         'text' => $_POST['text'],
+        'background'=>$color,
         'image'=> $_SESSION['user']['image']
     ];
 

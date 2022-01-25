@@ -9,7 +9,8 @@ require_once 'classes/Funkcije.classes.php';
 
 if (isset($_POST['text']) && !empty($_POST['text'])) {
     $poruka = 'Dodaj novu objavu.';
-    POST::insertPost();
+    $color=$_POST['backgroundcolor'];
+    POST::insertPost($color);
 } else if ($_SESSION['user']['login'] !== 0) {
     $poruka = 'Objava ne moze biti prazna!';
     $boja = 'crvena2';
@@ -43,6 +44,8 @@ if (isset($_POST['text']) && !empty($_POST['text'])) {
                 <!-- <legend>Dodaj novu objavu.</legend> -->
                 <label for="text" class="poruka2 <?php echo $boja; ?>"><?php echo $poruka; ?></label>
                 <textarea name="text" id="text" cols="20" rows="3"></textarea>
+                <label for="color">Odaberite boju pozadine, ako želite.</label>
+                <input type="color" name="backgroundcolor" id="color" value="#ffffff" >
                 <input class="button warning" type="submit" value="Objavi!">
             </form>
         </section>
@@ -52,7 +55,7 @@ if (isset($_POST['text']) && !empty($_POST['text'])) {
             $data = $_SESSION['data'];
 
             foreach ($data as $post) : ?>
-                <div class="objave grid-x">
+                <div class="objave grid-x" style="background-color:<?php echo $post['background']; ?>">
                     <?php
                     Post::writePost($post);
                     if ($_SESSION['user']['username'] == $post['username']) {
