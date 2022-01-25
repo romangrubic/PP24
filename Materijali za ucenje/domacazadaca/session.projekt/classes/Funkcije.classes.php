@@ -32,12 +32,13 @@ class Login
 class Post
 {
     // Uzima POST objekt i stvara novi post
-    public static function insertPost($color){
+    public static function insertPost($backgroundcolor, $textcolor){
         $podaci = [
         'username' => $_SESSION['user']['username'],
         'id'=> $_SESSION['dataId'],
         'text' => $_POST['text'],
-        'background'=>$color,
+        'background'=>$backgroundcolor,
+        'textcolor'=>$textcolor,
         'image'=> $_SESSION['user']['image']
     ];
 
@@ -49,7 +50,7 @@ class Post
     public static function writePost($post)
     {
         echo '
-                <p class="large-12">' . $post['text'] . '</p>
+                <p class="large-12" style="color:'.$post['textcolor'].'">' . $post['text'] . '</p>
                 <div class="grid-x center">
                     <img src="'.$post['image'].'" class="user-image" alt="No profile image :/">
                     <h4>' . $post['username'] . '</h4>
