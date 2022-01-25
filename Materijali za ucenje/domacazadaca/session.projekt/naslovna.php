@@ -8,13 +8,14 @@ if (!isset($_SESSION['user']['username'])) {
 require_once 'classes/Funkcije.classes.php';
 
 if (isset($_POST['text']) && !empty($_POST['text'])) {
-    $podaci = [
-        'username' => $_SESSION['user']['username'],
-        'text' => $_POST['text'],
-        'image'=> $_SESSION['user']['image']
-    ];
-    // stavljamo ih na pocetak liste.
-    array_unshift($_SESSION['data'], $podaci);
+    $poruka='Dodaj novu objavu.';
+    POST::insertPost();
+}else if($_SESSION['user']['login'] !== 0){
+    $poruka='Objava ne moze biti prazna!';
+    $boja='crvena2';
+}else{
+    $poruka='Dodaj novu objavu';
+    $_SESSION['user']['login']++;
 }
 ?>
 
@@ -40,7 +41,7 @@ if (isset($_POST['text']) && !empty($_POST['text'])) {
         <section class="addPost">
             <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post">
                 <!-- <legend>Dodaj novu objavu.</legend> -->
-                <label for="text">Dodaj novu objavu</label>
+                <label for="text" class="poruka2 <?php echo $boja;?>"><?php echo $poruka; ?></label>
                 <textarea name="text" id="text" cols="20" rows="3"></textarea>
                 <input class="button warning" type="submit" value="Objavi!">
             </form>

@@ -7,6 +7,7 @@ class Login
     {
         $_SESSION['user']['username'] = $username;
         $_SESSION['user']['image']= 'images/noprofileimage.jpg';
+        $_SESSION['user']['login']=0;
         $_SESSION['data'] = [
             [
                 'username' => 'IvanHorvat',
@@ -29,6 +30,17 @@ class Login
 
 class Post
 {
+    // Uzima POST objekt i stvara novi post
+    public static function insertPost(){
+        $podaci = [
+        'username' => $_SESSION['user']['username'],
+        'text' => $_POST['text'],
+        'image'=> $_SESSION['user']['image']
+    ];
+
+    array_unshift($_SESSION['data'], $podaci);
+    }
+
     // Ispisuje sve objave iz SESSION DATA
     public static function writePost($post)
     {
