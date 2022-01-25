@@ -8,13 +8,13 @@ if (!isset($_SESSION['user']['username'])) {
 require_once 'classes/Funkcije.classes.php';
 
 if (isset($_POST['text']) && !empty($_POST['text'])) {
-    $poruka='Dodaj novu objavu.';
+    $poruka = 'Dodaj novu objavu.';
     POST::insertPost();
-}else if($_SESSION['user']['login'] !== 0){
-    $poruka='Objava ne moze biti prazna!';
-    $boja='crvena2';
-}else{
-    $poruka='Dodaj novu objavu';
+} else if ($_SESSION['user']['login'] !== 0) {
+    $poruka = 'Objava ne moze biti prazna!';
+    $boja = 'crvena2';
+} else {
+    $poruka = 'Dodaj novu objavu';
     $_SESSION['user']['login']++;
 }
 ?>
@@ -34,14 +34,14 @@ if (isset($_POST['text']) && !empty($_POST['text'])) {
     <div class="naslovna grid-container">
         <div class="grid-x userblok">
             <img src="images/noprofileimage.jpg" class="profile-image large-2" alt="No profile image :/">
-            <h3 class="large-7 ime"><?php echo $_SESSION['user']['username'];?></h3>
+            <h3 class="large-7 ime"><?php echo $_SESSION['user']['username']; ?></h3>
             <a class="button alert odjava large-3" href="odjava.php">Odjavi se.</a>
         </div>
         <hr>
         <section class="addPost">
             <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post">
                 <!-- <legend>Dodaj novu objavu.</legend> -->
-                <label for="text" class="poruka2 <?php echo $boja;?>"><?php echo $poruka; ?></label>
+                <label for="text" class="poruka2 <?php echo $boja; ?>"><?php echo $poruka; ?></label>
                 <textarea name="text" id="text" cols="20" rows="3"></textarea>
                 <input class="button warning" type="submit" value="Objavi!">
             </form>
@@ -51,10 +51,17 @@ if (isset($_POST['text']) && !empty($_POST['text'])) {
             <?php
             $data = $_SESSION['data'];
 
-            foreach ($data as $post) {
-                Post::writePost($post);
-            }
-            ?>
+            foreach ($data as $post) : ?>
+                <div class="objave grid-x">
+                    <?php
+                    Post::writePost($post);
+                    if ($_SESSION['user']['username'] == $post['username']) {
+                        echo '
+                            <a class="button alert odjava large-3" href="deletePost.php?postId=' . $post['id'] . '">Obrisi objavu.</a>        
+                                ';
+                    } ?>
+                </div>
+            <?php endforeach; ?>
         </section>
     </div>
 
