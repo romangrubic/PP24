@@ -50,7 +50,7 @@ class Post
     public static function writePost($post)
     {
         echo '
-                <p class="large-12" style="color:'.$post['textcolor'].'">' . $post['text'] . '</p>
+                <p class="large-12 textsize" style="color:'.$post['textcolor'].'">' . $post['text'] . '</p>
                 <div class="grid-x center">
                     <img src="'.$post['image'].'" class="user-image" alt="No profile image :/">
                     <h4>' . $post['username'] . '</h4>

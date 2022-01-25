@@ -91,6 +91,12 @@ body{
     width: 500px;
     margin: 25px auto;
 }
+p{
+    margin-bottom: 15px;
+}
+.textsize{
+    font-size: 20px;
+}
 .user-image{
     width: 35px !important;
     height: 35px;

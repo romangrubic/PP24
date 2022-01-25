@@ -65,7 +65,7 @@ if (isset($_POST['text']) && !empty($_POST['text'])) {
                     Post::writePost($post);
                     if ($_SESSION['user']['username'] == $post['username']) {
                         echo '
-                            <a class="button alert odjava large-3" href="deletePost.php?postId=' . $post['id'] . '">Obrisi objavu.</a>        
+                            <a class="button alert odjava large-2" href="deletePost.php?postId=' . $post['id'] . '">Obriši.</a>        
                                 ';
                     } ?>
                 </div>
