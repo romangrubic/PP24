@@ -29,8 +29,8 @@ body{
     margin: auto;
     margin-bottom: 25px;
 }
-.warning{
-    border: 1px solid rgba(0, 0, 0, 0.5);
+.button{
+    border: 1px solid rgba(0, 0, 0, 0.24);
     border-radius: 5px;
     margin: 15px 0px 0px;
 }
@@ -68,9 +68,18 @@ body{
     width: 500px;
     margin: 0px auto 10px;
 }
+label{
+    width: 250px;
+    margin: auto;
+    font-size: 15px;
+}
 .color{
     width: 235px;
     margin: 0px auto 10px;
+}
+.objavibtn{
+    margin: 15px auto 0px;
+    width: 150px!important;
 }
 .poruka2{
     font-weight: 500;

@@ -41,16 +41,19 @@ if (isset($_POST['text']) && !empty($_POST['text'])) {
         </div>
         <hr>
         <section class="addPost">
-            <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post">
+            <form class="grid-x" action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post">
                 <!-- <legend>Dodaj novu objavu.</legend> -->
                 <label for="text" class="poruka2 <?php echo $boja; ?>"><?php echo $poruka; ?></label>
                 <textarea name="text" id="text" cols="20" rows="3"></textarea>
-                <label for=""></label>
-                <label for="textcolor">Odaberite boju teksta, ako želite.</label>
-                <input type="color" name="textcolor" class="color" id="textcolor">
-                <label for="backgroundcolor">Odaberite boju pozadine, ako želite.</label>
-                <input type="color" name="backgroundcolor" class="color" id="backgroundcolor" value="#ffffff" >
-                <input class="button warning" type="submit" value="Objavi!">
+                <fieldset class="large-4 large-offset-2">
+                    <label for="textcolor">Odaberite boju teksta, ako želite.</label>
+                    <input type="color" name="textcolor" class="color" id="textcolor">
+                </fieldset>
+                <fieldset class="large-4">
+                    <label for="backgroundcolor">Odaberite boju pozadine, ako želite.</label>
+                    <input type="color" name="backgroundcolor" class="color" id="backgroundcolor" value="#ffffff" >
+                </fieldset>                
+                <input class="button warning objavibtn large-12" type="submit" value="Objavi!">
             </form>
         </section>
         <hr>
@@ -75,7 +78,7 @@ if (isset($_POST['text']) && !empty($_POST['text'])) {
 
 
     <!-- Start skripte.php -->
-    <?
+    <?php
     include_once 'includes/skripte.php';
     ?>
     <!-- Zavrsetak skripte.php -->
