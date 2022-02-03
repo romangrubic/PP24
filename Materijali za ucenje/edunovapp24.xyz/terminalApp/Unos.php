@@ -13,6 +13,9 @@ class Unos
             if($unosKorisnika!=0){
                 return $unosKorisnika;
             }
+            if($unosKorisnika===0){
+                return $unosKorisnika=-1;
+            }
             echo $porukaGreska . PHP_EOL;
         }
     }
