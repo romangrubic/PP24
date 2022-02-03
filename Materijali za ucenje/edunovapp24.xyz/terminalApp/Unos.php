@@ -27,7 +27,16 @@ class Unos
         $terminal = fopen('php://stdin','r');
         while(true){
             echo $poruka;
-            $unosKorisnika = (float)fgets($terminal);
+            $decimal=fgets($terminal);
+
+            // Provjera: ima li $decimal zarez u sebi. Ako da, mijenjaj u tocku.
+            if(strpos($decimal,',')=== false){
+                $unosKorisnika = (float)$decimal;
+            }else{
+                $broj= str_replace('.','',$decimal);
+                $number = str_replace(',','.',$broj);
+                $unosKorisnika = (float)$number;
+            }      
             if($unosKorisnika!=0){
                 return $unosKorisnika;
             }
